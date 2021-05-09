@@ -17,10 +17,10 @@ jobs:
       - run:
           # Update this line with the directory that contains your tests project file
           working_directory: ~/project
-          name: Run tests
+          name: Build and run tests
           command: |
-            dotnet test
-            
+            dotnet build
+            dotnet test       
 
 workflows:
   # Below is the definition of your workflow.
