@@ -19,8 +19,8 @@ jobs:
           working_directory: ~/project/TrelloAutotests
           name: Build and run tests
           command: |
-            dotnet build TrelloAutotests.sln
-            dotnet test TrelloAutotests.sln
+            dotnet build TrelloAutotests.csproj
+            dotnet test TrelloAutotests.csproj
 
 workflows:
   # Below is the definition of your workflow.
