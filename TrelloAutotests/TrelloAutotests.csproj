@@ -7,6 +7,9 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Divergic.Logging.Xunit" Version="3.6.0" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0-preview.3.21201.4" />
+        <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0-preview.3.21201.4" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
         <PackageReference Include="RestAssured" Version="1.0.0" />
         <PackageReference Include="xunit" Version="2.4.1" />
