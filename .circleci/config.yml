@@ -17,9 +17,9 @@ jobs:
       - run:
           # Update this line with the directory that contains your tests project file
           working_directory: ~/project
-          name: Run tests
+          name: Build
           command: |
-            dotnet test TrelloAutotests/TrelloAutotests.sln
+            dotnet build 
             
 
 workflows:
