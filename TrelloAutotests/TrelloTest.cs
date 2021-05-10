@@ -1,8 +1,4 @@
-﻿using Divergic.Logging.Xunit;
-using Microsoft.Extensions.Logging;
-using RA;
-using Xunit;
-using Xunit.Abstractions;
+﻿using Xunit;
 
 namespace TrelloAutotests
 {
@@ -13,7 +9,6 @@ namespace TrelloAutotests
         {
             _trelloEndpoints = new TrelloEndpoints();
         }
-
 
         [Fact]
         public void GetAllBoard_ShouldReturnListOfBoards()
@@ -26,8 +21,11 @@ namespace TrelloAutotests
         public void GetNamesOfBoard_ShouldReturnListOfBoards()
         {
             const string field = "name";
-           _trelloEndpoints.GetBoardsWithParticularFields(field)
-                .TestStatus("status", x => x == 200);
+            _trelloEndpoints.GetBoardsWithParticularFields(field)
+                // .TestBody("name is null", x => x[0].name == null)
+                // .Assert("name is null");
+                .TestBody("name not null", x => x[0].name != null)
+                .Assert("name not null");
         }
         
         [Fact]
@@ -45,7 +43,8 @@ namespace TrelloAutotests
             var listId = "60981703c97b4a7aa03edd9f";
             var listName = "Exams preparation 2021";
             _trelloEndpoints.UpdateExistingList(listId, listName)
-                .TestStatus("status", x => x == 200);
+                .TestBody("name changed", x => x.id == listId && x.name == listName)
+                .Assert("name changed");
         }
 
         [Fact]
@@ -54,11 +53,11 @@ namespace TrelloAutotests
 
             var listId = "60981703c97b4a7aa03edd9f"; // Exams preparation list
             var cardName = "Pay attention to compiler labs";
-            
-            _trelloEndpoints.CreateCard(listId, cardName)
-                .TestStatus("status", x => x == 200);
-            
-        }
 
+            _trelloEndpoints.CreateCard(listId, cardName)
+                .TestBody("check name", x => x.name == cardName)
+                .Assert("check name");
+
+        }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-using RA;
+﻿using RA;
 
 namespace TrelloAutotests
 {
@@ -25,6 +24,17 @@ namespace TrelloAutotests
                      $"?fields={field},url&key={Configs.Key}&token={Configs.Token}")
                 .Then();
         }
+        
+        public ResponseContext CreateList(string boardId, string listName)
+        {
+            return new RestAssured()
+                .Given()
+                .Header("Content-Type", "application/json")
+                .When()
+                .Post(Configs.BaseUri + Configs.ListsUrl +
+                      $"?key={Configs.Key}&token={Configs.Token}&name={listName}&idBoard={boardId}")
+                .Then();
+        }
 
         public ResponseContext UpdateExistingList(string listId, string listName)
         {
@@ -37,17 +47,6 @@ namespace TrelloAutotests
                 .Then();
         }
 
-        public ResponseContext CreateList(string boardId, string listName)
-        {
-            return new RestAssured()
-                .Given()
-                .Header("Content-Type", "application/json")
-                .When()
-                .Post(Configs.BaseUri + Configs.ListsUrl +
-                      $"?key={Configs.Key}&token={Configs.Token}&name={listName}&idBoard={boardId}")
-                .Then();
-        }
-        
         public ResponseContext CreateCard(string listId, string cardName)
         {
             var result = new RestAssured()
