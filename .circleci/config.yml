@@ -28,16 +28,8 @@ jobs:
           command: |
             dotnet test TrelloAutotests.csproj --logger "trx"
 
-      - run:
-          name: test results
-          command: |
-              dotnet tool install -g trx2junit
-              trx2junit tests/**/TestResults/*.trx
       - store_test_results:
           path: tests/TestResults
-      - store_artifacts:
-          path: tests/TestResults
-          destination: TestResults
 
 workflows:
   # Below is the definition of your workflow.
