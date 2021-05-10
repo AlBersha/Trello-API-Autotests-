@@ -5,13 +5,6 @@ namespace TrelloAutotests
 {
     public class TrelloEndpoints
     {
-        private readonly ILogger _logger;
-        
-        public TrelloEndpoints(ILogger logger)
-        {
-            _logger = logger;
-        }
-
         public ResponseContext GetAllBoards()
         {
             return new RestAssured()
@@ -65,7 +58,6 @@ namespace TrelloAutotests
                       $"?key={Configs.Key}&token={Configs.Token}&idList={listId}&name={cardName}")
                 .Then();
             
-            // _logger.LogInformation(result.Retrieve(x => x).ToString());
             return result;
         }
     }

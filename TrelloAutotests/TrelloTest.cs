@@ -8,15 +8,10 @@ namespace TrelloAutotests
 {
     public class TrelloTest
     {   
-        // private readonly ITestOutputHelper _testOutputHelper;
-        private readonly ILogger _logger;
-        private TrelloEndpoints _trelloEndpoints;
-        public TrelloTest(ITestOutputHelper testOutputHelper)
+        private readonly TrelloEndpoints _trelloEndpoints;
+        public TrelloTest()
         {
-            var factory = LogFactory.Create(testOutputHelper);
-            // _testOutputHelper = testOutputHelper;
-            _logger = factory.CreateLogger(nameof(TrelloEndpoints));
-            _trelloEndpoints = new TrelloEndpoints(_logger);
+            _trelloEndpoints = new TrelloEndpoints();
         }
 
 
@@ -56,13 +51,6 @@ namespace TrelloAutotests
         [Fact]
         public void CreateCardInsideExistingList_ShouldReturnNewCard()
         {
-            // var services = new ServiceCollection()
-            //     .AddLogging((builder) => builder.AddXUnit(TestOutputHelper))
-            //     .AddSingleton<TrelloEndpoints>();
-            //
-            // var trelloEndpoints = services
-            //     .BuildServiceProvider()
-            //     .GetRequiredService<TrelloEndpoints>();
 
             var listId = "60981703c97b4a7aa03edd9f"; // Exams preparation list
             var cardName = "Pay attention to compiler labs";
