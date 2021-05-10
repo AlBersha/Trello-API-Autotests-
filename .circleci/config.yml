@@ -26,10 +26,7 @@ jobs:
           working_directory: ~/project/TrelloAutotests
           name: Run tests
           command: |
-            dotnet test TrelloAutotests.csproj
-
-      - store_test_results:
-          path: /tmp/test-reports
+            dotnet test TrelloAutotests.csproj --logger:xinit
 
 workflows:
   # Below is the definition of your workflow.
