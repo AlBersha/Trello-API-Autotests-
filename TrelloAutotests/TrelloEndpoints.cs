@@ -65,7 +65,7 @@ namespace TrelloAutotests
                       $"?key={Configs.Key}&token={Configs.Token}&idList={listId}&name={cardName}")
                 .Then();
             
-            _logger.LogInformation(result.Retrieve(x => x).ToString());
+            // _logger.LogInformation(result.Retrieve(x => x).ToString());
             return result;
         }
     }

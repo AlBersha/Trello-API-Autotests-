@@ -64,12 +64,10 @@ namespace TrelloAutotests
             //     .BuildServiceProvider()
             //     .GetRequiredService<TrelloEndpoints>();
 
-            var trelloEndpoints = new TrelloEndpoints(_logger);
-            
             var listId = "60981703c97b4a7aa03edd9f"; // Exams preparation list
             var cardName = "Pay attention to compiler labs";
             
-            trelloEndpoints.CreateCard(listId, cardName)
+            _trelloEndpoints.CreateCard(listId, cardName)
                 .TestStatus("status", x => x == 200);
             
         }
