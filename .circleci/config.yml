@@ -29,7 +29,7 @@ jobs:
             dotnet test TrelloAutotests.csproj --logger "trx"
 
       - store_test_results:
-          path: tests/TestResults
+          path: ~/project/TrelloAutotests
 
 workflows:
   # Below is the definition of your workflow.
