@@ -28,6 +28,9 @@ jobs:
           command: |
             dotnet test TrelloAutotests.csproj
 
+      - store_test_results:
+          path: test-results
+
 workflows:
   # Below is the definition of your workflow.
   # Inside the workflow, you provide the jobs you want to run, e.g this workflow runs the build-and-test job above.
