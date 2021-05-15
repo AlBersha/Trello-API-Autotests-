@@ -19,7 +19,7 @@ jobs:
             dotnet test --logger:xunit
 
       - store_test_results:
-          path: ~/project/TrelloAutotests/TrelloAutotests/TestResults
+          path: ~/project/TrelloAutotests/TrelloAutotests/TestResults/TestResults.xml
 
 workflows:
   sample: 
