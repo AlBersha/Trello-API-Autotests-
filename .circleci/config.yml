@@ -7,13 +7,13 @@ jobs:
     steps:
       - checkout
       - run:
-          working_directory: ~/project/TrelloAutotests
+          working_directory: ~/project
           name: Build
           command: |
-            dotnet build TrelloAutotests.csproj
+            dotnet build
 
       - run:
-          working_directory: ~/project/
+          working_directory: ~/project
           name: Run tests
           command: |
             dotnet test -v n --results-directory:test_coverage --collect:"Code Coverage"
