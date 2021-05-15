@@ -13,10 +13,10 @@ jobs:
             dotnet build TrelloAutotests.csproj
 
       - run:
-          working_directory: ~/project/TrelloAutotests
+          working_directory: ~/project/
           name: Run tests
           command: |
-            dotnet test TrelloAutotests.csproj --logger "trx"
+            dotnet test
 
       - store_test_results:
           path: ~/project/TrelloAutotests
