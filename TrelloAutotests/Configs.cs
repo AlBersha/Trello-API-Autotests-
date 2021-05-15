@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace TrelloAutotests
+﻿namespace TrelloAutotests
 {
     public static class Configs
     {
