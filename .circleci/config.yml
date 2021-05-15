@@ -18,8 +18,12 @@ jobs:
           command: |
             dotnet test -v n --results-directory:test_coverage --collect:"Code Coverage"
 
+      - store_artifacts:
+          path: test/test-results.xml
+      - store_artifacts:
+          path: test/coverage
       - store_test_results:
-          path: ~/project/test_coverage
+          path: test
 
 workflows:
   sample: 
