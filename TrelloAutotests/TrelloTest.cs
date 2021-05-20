@@ -22,10 +22,10 @@ namespace TrelloAutotests
         {
             const string field = "name";
             _trelloEndpoints.GetBoardsWithParticularFields(field)
-                .TestBody("name is null", x => x[0].name == null)
-                .Assert("name is null");
-                // .TestBody("name not null", x => x[0].name != null)
-                // .Assert("name not null");
+                // .TestBody("name is null", x => x[0].name == null)
+                // .Assert("name is null");
+                .TestBody("name not null", x => x[0].name != null)
+                .Assert("name not null");
         }
         
         [Fact]
